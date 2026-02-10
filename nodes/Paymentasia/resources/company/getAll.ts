@@ -1,19 +1,18 @@
 import type { INodeProperties } from 'n8n-workflow';
-import { parseLinkHeader } from '../../shared/utils';
 
-const showOnlyForIssueCommentGetMany = {
+const showOnlyForCompanyGetMany = {
 	operation: ['getAll'],
-	resource: ['issueComment'],
+	resource: ['company'],
 };
 
-export const issueCommentGetManyDescription: INodeProperties[] = [
+export const companyGetManyDescription: INodeProperties[] = [
 	{
 		displayName: 'Limit',
 		name: 'limit',
 		type: 'number',
 		displayOptions: {
 			show: {
-				...showOnlyForIssueCommentGetMany,
+				...showOnlyForCompanyGetMany,
 				returnAll: [false],
 			},
 		},
@@ -25,7 +24,7 @@ export const issueCommentGetManyDescription: INodeProperties[] = [
 		routing: {
 			send: {
 				type: 'query',
-				property: 'per_page',
+				property: 'limit',
 			},
 			output: {
 				maxResults: '={{$value}}',
@@ -38,25 +37,22 @@ export const issueCommentGetManyDescription: INodeProperties[] = [
 		name: 'returnAll',
 		type: 'boolean',
 		displayOptions: {
-			show: showOnlyForIssueCommentGetMany,
+			show: showOnlyForCompanyGetMany,
 		},
 		default: false,
 		description: 'Whether to return all results or only up to a given limit',
 		routing: {
 			send: {
 				paginate: '={{ $value }}',
-				type: 'query',
-				property: 'per_page',
-				value: '100',
 			},
 			operations: {
 				pagination: {
-					type: 'generic',
+					type: 'offset',
 					properties: {
-						continue: `={{ !!(${parseLinkHeader.toString()})($response.headers?.link).next }}`,
-						request: {
-							url: `={{ (${parseLinkHeader.toString()})($response.headers?.link)?.next ?? $request.url }}`,
-						},
+						limitParameter: 'limit',
+						offsetParameter: 'offset',
+						pageSize: 100,
+						type: 'query',
 					},
 				},
 			},
