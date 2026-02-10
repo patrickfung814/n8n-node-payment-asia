@@ -7,7 +7,7 @@ export class Paymentasia implements INodeType {
 		name: 'paymentasia',
 		icon: {
 			light: 'file:palogo.svg',
-			dark: 'file:palogo.svg',
+			dark: 'file:palogo.dark.svg',
 		},
 		group: ['transform'],
 		version: 1,

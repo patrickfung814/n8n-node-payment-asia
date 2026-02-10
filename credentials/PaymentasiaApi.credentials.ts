@@ -1,6 +1,6 @@
 import type {
 	IAuthenticateGeneric,
-	// ICredentialTestRequest,
+	ICredentialTestRequest,
 	ICredentialType,
 	INodeProperties,
 } from 'n8n-workflow';
@@ -48,6 +48,18 @@ export class PaymentasiaApi implements ICredentialType {
 			headers: {
 				'X-API-KEY': '={{$credentials.apiKey}}',
 			},
+		},
+	};
+
+	/**
+	 * Test the credentials by attempting to authenticate with the Payment Asia API
+	 * This makes a simple request to verify the API key is valid
+	 */
+	test: ICredentialTestRequest = {
+		request: {
+			baseURL: 'https://gateway.pa-sys.com',
+			url: '/payment/v3/check-exist',
+			method: 'GET',
 		},
 	};
 }

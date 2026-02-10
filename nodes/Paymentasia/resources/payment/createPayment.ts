@@ -72,14 +72,14 @@ export const paymentCreateDescription: INodeProperties[] = [
 		name: 'network',
 		type: 'options',
 		options: [
-			{ name: 'Credit Card', value: 'CreditCard' },
-			{ name: 'FPS', value: 'Fps' },
 			{ name: 'Alipay', value: 'Alipay' },
-			{ name: 'WeChat Pay', value: 'Wechat' },
-			{ name: 'PayMe', value: 'PayMe' },
+			{ name: 'Credit Card', value: 'CreditCard' },
 			{ name: 'CUP', value: 'CUP' },
+			{ name: 'FPS', value: 'Fps' },
 			{ name: 'Octopus', value: 'Octopus' },
+			{ name: 'PayMe', value: 'PayMe' },
 			{ name: 'UserDefine', value: 'UserDefine' },
+			{ name: 'WeChat Pay', value: 'Wechat' },
 		],
 		default: 'UserDefine',
 		required: true,
@@ -134,7 +134,6 @@ export const paymentCreateDescription: INodeProperties[] = [
 		displayOptions: {
 			show: showOnlyForPaymentCreate,
 		},
-		description: 'Customer first name',
 		routing: {
 			send: {
 				type: 'body',
@@ -150,7 +149,6 @@ export const paymentCreateDescription: INodeProperties[] = [
 		displayOptions: {
 			show: showOnlyForPaymentCreate,
 		},
-		description: 'Customer last name',
 		routing: {
 			send: {
 				type: 'body',
@@ -200,7 +198,7 @@ export const paymentCreateDescription: INodeProperties[] = [
 		displayOptions: {
 			show: showOnlyForPaymentCreate,
 		},
-		description: 'The name or keywords of the order.',
+		description: 'The name or keywords of the order',
 		routing: {
 			send: {
 				type: 'body',
@@ -223,24 +221,10 @@ export const paymentCreateDescription: INodeProperties[] = [
 				name: 'customer_address',
 				type: 'string',
 				default: '',
-				description: 'Customer address',
 				routing: {
 					send: {
 						type: 'body',
 						property: 'customer_address',
-					},
-				},
-			},
-			{
-				displayName: 'Customer State',
-				name: 'customer_state',
-				type: 'string',
-				default: '',
-				description: 'Customer state',
-				routing: {
-					send: {
-						type: 'body',
-						property: 'customer_state',
 					},
 				},
 			},
@@ -250,7 +234,7 @@ export const paymentCreateDescription: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
-					'ISO ALPHA-2 Code, e.g. HK, TW, US. Required if network is choosing a Credit Card. (length 2)',
+					'ISO ALPHA-2 Code, e.g. HK, TW, US. Required if network is choosing a Credit Card. (length 2).',
 				routing: {
 					send: {
 						type: 'body',
@@ -263,7 +247,7 @@ export const paymentCreateDescription: INodeProperties[] = [
 				name: 'customer_postal_code',
 				type: 'string',
 				default: '',
-				description: 'Required if network is choosing a Credit Card. (length 64)',
+				description: 'Required if network is choosing a Credit Card (length 64)',
 				routing: {
 					send: {
 						type: 'body',
@@ -272,16 +256,28 @@ export const paymentCreateDescription: INodeProperties[] = [
 				},
 			},
 			{
+				displayName: 'Customer State',
+				name: 'customer_state',
+				type: 'string',
+				default: '',
+				routing: {
+					send: {
+						type: 'body',
+						property: 'customer_state',
+					},
+				},
+			},
+			{
 				displayName: 'Language',
 				name: 'lang',
 				type: 'options',
 				options: [
-					{ name: 'zh-tw', value: 'zh-tw' },
-					{ name: 'zh-cn', value: 'zh-cn' },
-					{ name: 'en', value: 'en' },
+					{ name: 'EN', value: 'en' },
+					{ name: 'ZH-CN', value: 'zh-cn' },
+					{ name: 'ZH-TW', value: 'zh-tw' },
 				],
-				default: '',
-				description: 'Required if network is choosing a Credit Card. (length 64)',
+				default: 'en',
+				description: 'Required if network is choosing a Credit Card. (length 64).',
 				routing: {
 					send: {
 						type: 'body',

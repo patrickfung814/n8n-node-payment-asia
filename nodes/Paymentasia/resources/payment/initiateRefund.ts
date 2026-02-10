@@ -36,7 +36,7 @@ export const initiateRefundDescription: INodeProperties[] = [
 		displayOptions: {
 			show: showOnlyForRefund,
 		},
-		description: '10000.00, 100.00, 1.00. (length 24)',
+		description: '10000.00, 100.00, 1.00. (length 24).',
 		routing: {
 			send: {
 				type: 'body',
@@ -54,7 +54,7 @@ export const initiateRefundDescription: INodeProperties[] = [
 			show: showOnlyForRefund,
 		},
 		description:
-			'For CreditCard support HKD and USD For other channel only support HKD. (length 3)',
+			'For CreditCard support HKD and USD For other channel only support HKD. (length 3).',
 		routing: {
 			send: {
 				type: 'body',
@@ -133,9 +133,9 @@ export const initiateRefundDescription: INodeProperties[] = [
 								const metadata = this.getNodeParameter('additionalFields.metadata') as string;
 								if (metadata) {
 									try {
-										const body = requestOptions.body as Record<string, any>;
+										const body = requestOptions.body as Record<string, unknown>;
 										body.metadata = JSON.parse(metadata);
-									} catch (error) {
+									} catch {
 										throw new Error('Invalid JSON in metadata field');
 									}
 								}

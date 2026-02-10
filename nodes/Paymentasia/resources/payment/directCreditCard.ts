@@ -20,7 +20,7 @@ export const directCreditCardDescription: INodeProperties[] = [
 		displayOptions: {
 			show: showOnlyForDirectCreditCard,
 		},
-		description: 'e.g. 10000.00, 100.00, 1.00. (length 24)',
+		description: 'E.g. 10000.00, 100.00, 1.00. (length 24).',
 		routing: {
 			send: {
 				type: 'body',
@@ -70,7 +70,7 @@ export const directCreditCardDescription: INodeProperties[] = [
 		displayOptions: {
 			show: showOnlyForDirectCreditCard,
 		},
-		description: 'For receiving datafeed after payment. (length 255)',
+		description: 'For receiving datafeed after payment. (length 255).',
 		routing: {
 			send: {
 				type: 'body',
@@ -86,7 +86,7 @@ export const directCreditCardDescription: INodeProperties[] = [
 		displayOptions: {
 			show: showOnlyForDirectCreditCard,
 		},
-		description: 'Customer will be redirected back to URL provided.(length 255)',
+		description: 'Customer will be redirected back to URL provided. (length 255).',
 		routing: {
 			send: {
 				type: 'body',
@@ -102,7 +102,7 @@ export const directCreditCardDescription: INodeProperties[] = [
 		displayOptions: {
 			show: showOnlyForDirectCreditCard,
 		},
-		description: 'Required if network is choosing a Credit Card. (length 255)',
+		description: 'Required if network is choosing a Credit Card. (length 255).',
 		routing: {
 			send: {
 				type: 'body',
@@ -202,7 +202,7 @@ export const directCreditCardDescription: INodeProperties[] = [
 		displayOptions: {
 			show: showOnlyForDirectCreditCard,
 		},
-		description: 'Credit card number ',
+		description: 'Credit card number',
 		routing: {
 			send: {
 				type: 'body',
@@ -279,16 +279,15 @@ export const directCreditCardDescription: INodeProperties[] = [
 				type: 'options',
 				options: [
 					{
-						name: 'CUP',
-						value: 'CUP',
-					},
-					{
 						name: 'CreditCard',
 						value: 'CreditCard',
 					},
+					{
+						name: 'CUP',
+						value: 'CUP',
+					},
 				],
-				default: '',
-				description: 'Customer name',
+				default: 'CreditCard',
 				routing: {
 					send: {
 						type: 'body',
