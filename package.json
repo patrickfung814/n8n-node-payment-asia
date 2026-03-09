@@ -8,13 +8,10 @@
 		"n8n-community-node-package"
 	],
 	"author": {
-		"name": "patrickfung",
-		"email": "patrick.fung@paymentasia.com"
+		"name": "paymentasia",
+		"email": "app@paymentasia.com"
 	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/patrickfung814/n8n-node-payment-asia.git"
-	},
+	"repository": {},
 	"scripts": {
 		"build": "n8n-node build",
 		"build:watch": "tsc --watch",
